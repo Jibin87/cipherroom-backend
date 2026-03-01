@@ -17,7 +17,7 @@ const io = new Server(server, { cors: { origin: '*' } });
 app.get('/ping', (req, res) => res.status(200).send('Awake!'));
 
 const pool = new Pool({
-    connectionString: "postgresql://neondb_owner:npg_lQLJdFbG1AV5@ep-purple-base-aiokgr87-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require", 
+    connectionString: process.env.DATABASE_URL, 
     ssl: { rejectUnauthorized: false } 
 });
 
@@ -191,3 +191,4 @@ io.on('connection', (socket) => {
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Secure Server running on port ${PORT}`));
+
