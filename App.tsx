@@ -11,7 +11,7 @@ import AudioRecorderPlayer from 'react-native-audio-recorder-player';
 import RNFS from 'react-native-fs';
 
 // IMPORTANT: Ensure this matches your live Render URL
-const SERVER_URL = 'http://10.0.2.2:3000'; 
+const SERVER_URL = 'https://cipherroom-backend.onrender.com'; 
 const socket = io(SERVER_URL);
 const ROOM_SECRET = "super-secret-resume-project-key"; 
 
@@ -629,3 +629,4 @@ const styles = StyleSheet.create({
   modeMenuContainer: { position: 'absolute', bottom: 80, right: 24, borderRadius: 20, padding: 8, elevation: 10, shadowColor: '#000', shadowOffset: {width: 0, height: 8}, shadowOpacity: 0.4, shadowRadius: 15, zIndex: 100, width: 220 },
   modeMenuItem: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 16, borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,0.05)' },
 });
+
