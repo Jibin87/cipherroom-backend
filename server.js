@@ -192,3 +192,15 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Secure Server running on port ${PORT}`));
 
+// KEEP-ALIVE SYSTEM
+// This pings the server every 10 minutes to prevent Render from sleeping
+const https = require('https');
+setInterval(() => {
+    https.get('https://cipherroom-backend.onrender.com/ping', (res) => {
+        console.log('Self-ping to stay awake...');
+    }).on('error', (err) => {
+        console.error('Ping error: ' + err.message);
+    });
+}, 600000); // 10 minutes
+
+app.get('/ping', (req, res) => res.send('Awake'));
